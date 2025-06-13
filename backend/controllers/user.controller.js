@@ -54,7 +54,7 @@ export const registeruser = async (req, res) => {
 
         res.cookie('token', token, {
             httpOnly: true,     // 🔒 Prevents JS access via document.cookie
-            secure: process.env.NODE_ENV === "production,
+            secure: process.env.NODE_ENV === "production",
             sameSite: 'strict', // 🚫 Blocks cross-site cookie sending (CSRF protection)
             maxAge: 7*24 * 60 * 60 * 1000, // ⏳ 24 hrs 60 min 60 sec 1000 milisecond
         })
@@ -89,7 +89,7 @@ export const login=async (req,res)=>{
         const token=await user.generatetoken()
         res.cookie('token', token, {
             httpOnly: true,     // 🔒 Prevents JS access via document.cookie
-            secure: process.env.NODE_ENV === "production, 
+            secure: process.env.NODE_ENV === "production", 
             sameSite: 'strict', // 🚫 Blocks cross-site cookie sending (CSRF protection)
             maxAge: 7*24 * 60 * 60 * 1000, // ⏳ 24 hrs 60 min 60 sec 1000 milisecond
         })
